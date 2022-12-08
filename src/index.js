@@ -4,7 +4,7 @@ import {
     normalizePathnameMiddleware
   } from '@cfworker/web';
 import { getAssetFromKV } from "@cloudflare/kv-asset-handler";
-const pass='123'//默认登录密码
+const pass='3321'//默认登录密码
 /*
 默认密码都是123
 */
@@ -31,7 +31,7 @@ const pass='123'//默认登录密码
       　　}
       　　return result;
       }
-    
+
     //router
      addEventListener("fetch", async (event) => {
       let pathname = new URL(event.request.url)
@@ -44,19 +44,19 @@ const pass='123'//默认登录密码
       }
       if (list.test(pathname.pathname)) {
         event.respondWith(handleEvent(event));
-      }  
+      }
     });
     //handle event
     async function handleEvent(event) {
       let pathname = new URL(event.request.url)
       return getAssetFromKV(event)
   }
-  
+
 //redirect to index
   router.get('/',({res})=>{
     res.redirect('/index.html')
   })
-  
+
   //upload api
 router.post(
     '/api', async ({req,res})=> {
@@ -76,7 +76,7 @@ router.post(
         }
       let stream=file[i].stream()
       const exp=86400
-      
+
         await LINK.put(url,stream,{
           expirationTtl: exp,
           metadata:{
@@ -126,8 +126,8 @@ router.post(
     res.type=metadata.type
     res.headers.append('Content-Disposition',`attachment;filename=${metadata.name}`)
     res.body=body
-    
-  })  
+
+  })
   // Favicon route for fun :)
   router.get('/favicon.ico', ({ res }) => {
     res.type = 'image/svg+xml';
@@ -156,7 +156,7 @@ router.post(
   //sign in auth
   router.get('/query',async ({req,res})=>{
     const paramas=req.url.searchParams
-    
+
     if (paramas.get('pass')==pass) {
       const key=await LINK.list()
     if (key.keys=='') {
@@ -169,11 +169,11 @@ router.post(
     else{
       res.status=400
       res.body={info:'密码错误'}
-      
+
     }
 
   })
-  
+
 
   // Compose the application
   new Application()
