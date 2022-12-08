@@ -33,7 +33,7 @@ export default{
       })
       drag.addEventListener('dragleave',(e)=>{
         e.preventDefault()
-        
+
         if (
         e.clientX <= 0 ||
           e.clientY <= 0 ||
@@ -88,9 +88,9 @@ export default{
           form.append('file',file_id.files[i])
           this.status=true
       }
-      
+
       setTimeout(()=>{
-      fetch('/api',{
+    fetch('/api',{
       method:'POST',
       body:form
     }).then((e)=>{
@@ -106,7 +106,7 @@ export default{
         this.file_info.push(re.msg[i])
       }
     })
-  },600)      
+  },600)
     },
     assign(e){
       window.location.assign(e)
@@ -121,7 +121,7 @@ export default{
       },
       date(e){
         const month=new Date(e).getMonth()+1
-        return new Date(e).getFullYear()+'-'+month+'-'+new Date(e).getDate()+' '+new Date(e).getHours()+':'+new Date(e).getMinutes() 
+        return new Date(e).getFullYear()+'-'+month+'-'+new Date(e).getDate()+' '+new Date(e).getHours()+':'+new Date(e).getMinutes()
       },
       qrcode(e){
         this.qr_val=e
@@ -145,7 +145,7 @@ export default{
           form.append('file',data[i])
           this.status=true
       }
-      
+
       setTimeout(()=>{
       fetch('/api',{
       method:'POST',
@@ -178,11 +178,11 @@ export default{
   <Transition name="loading">
     <Loading :active="this.status" loader="bars" width="50" height="50" color="rgb(0,123,255)"></Loading>
     </Transition>
-  <div style="position: fixed; bottom: 0; left: 0; right: 0; top: 0; z-index: 999;" v-show="over_page">  
+  <div style="position: fixed; bottom: 0; left: 0; right: 0; top: 0; z-index: 999;" v-show="over_page">
       <div style="background-color: white; opacity: 0.5; inset: 0; position: absolute;" ></div>
     <div style="border: dashed 2px; top: 50%; text-align: center; z-index: 999; width: 50%; height: 30%;" class="center">
       <div style="text-align: center;padding-top: 10%;position: absolute;width: 100%;height: 100%;" class="drop_text">
-        
+
     </div>
     </div>
 </div>
@@ -214,7 +214,7 @@ export default{
       <!--reccode_input_page-->
       <div v-if="(this.page_status=='code_page')" class="mdui-shadow-6 msg card">
         <li @click="(this.page_status=false)" class="iconfont icon-shanchu del" ></li>
-    
+
         <div style="margin-top: 10px;
     font-size: x-large;
     font-weight: 900;">请输入取件码</div>
@@ -224,7 +224,7 @@ export default{
   <input maxlength="5" class="mdui-textfield-input" v-model="this.rec_code" style="letter-spacing: 5px; text-align: center; font-size: x-large;
     font-weight: 900;" type="text"/>
 </div>
-      </div> 
+      </div>
 
 <!--rec_succ_page-->
       <div v-if="this.page_status=='code_succ_page'" class="mdui-shadow-6 msg card">
@@ -252,10 +252,10 @@ export default{
       <tr v-for="(value,index) in this.file_info" :key="index">
         <td style="overflow-wrap: break-word;">
           {{value.name}}
-        </td> 
+        </td>
         <td style="overflow-wrap: normal;">
           {{Math.floor(value.size/1024/1024*100)/100}} MB
-        </td> 
+        </td>
         <td>
             <button class="mdui-btn mdui-btn-raised mdui-color-indigo" style="position:relative;right:15px" :mdui-menu="`{target: '#share_${index}'}`">分享</button>
             <ul class="mdui-menu" :id="'share_'+index">
@@ -315,7 +315,7 @@ export default{
 .over_page{
   width: 100%;
   height: 100%;
- 
+
 }
 .msg{
   position: absolute;

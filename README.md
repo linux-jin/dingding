@@ -55,7 +55,7 @@ cd dingding && npm i
 
 #修改wrangler.toml中 id 为你创建的KV数据库id
 kv_namespaces = [
-  { binding = "LINK", id = "111",preview_id='111'}
+  { binding = "fileshare", id = "111",preview_id='111'}
 ]
 
 #最后执行publish推送到workers即可
