@@ -1,19 +1,13 @@
 name = "fileshare"
 main = "./src/index.js"
-type = "webpack"
-account_id = "5598ed56758d7b038c57895f1ff7ecf5"
-zone_id = "aab2fedd9ab99bb89984a0ce10247815"
-
-workers_dev = false
-route = "file.mistyhill.ml/*"
 compatibility_date = "2022-11-08"
+route = "file.mistyhill.ml/*"
 
 kv_namespaces = [
-  { binding = "fileshare", id = "129af8af9d0f4b3f87e38d68b1d63fa0", preview_id='129af8af9d0f4b3f87e38d68b1d63fa0'}
+  { binding = "LINK", id = "129af8af9d0f4b3f87e38d68b1d63fa0", preview_id='129af8af9d0f4b3f87e38d68b1d63fa0'}
 ]
 
 
 [site]
 bucket = "./static/dist"
-entry-point = "workers-site"
 
