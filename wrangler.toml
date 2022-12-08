@@ -1,6 +1,5 @@
 name = "fileshare"
 main = "./src/index.js"
-type = "webpack"
 compatibility_date = "2022-11-08"
 account_id = "5598ed56758d7b038c57895f1ff7ecf5"
 zone_id = "aab2fedd9ab99bb89984a0ce10247815"
